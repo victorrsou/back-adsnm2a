@@ -14,3 +14,9 @@ Nesta pasta, você encontrará os códigos referentes às aulas expositivas. Sã
 
 ### 2. Práticas
 Aqui estão armazenados os códigos correspondentes às atividades práticas. Essas práticas visam fortalecer os conceitos aprendidos em sala, proporcionando oportunidades para aplicação e exercício das habilidades adquiridas.
+
+### Extensões instaladas VSCode
+Express snippets
+Prettier
+Vscode icons
+Rest client
