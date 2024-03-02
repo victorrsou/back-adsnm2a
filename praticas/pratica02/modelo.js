@@ -1,4 +1,4 @@
-class contrato {
+class contato {
     constructor(nome, email, telefone) {
         this.nome = nome;
         this.email = email;
@@ -6,3 +6,4 @@ class contrato {
     }
 }
 
+module.exports = contato
