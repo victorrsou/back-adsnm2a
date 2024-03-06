@@ -1,6 +1,5 @@
 const contato = require('./modelo');
 
-
 contatos = []
 
 function adicionarContato(nome, email, telefone) {

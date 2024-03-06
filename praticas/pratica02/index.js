@@ -20,7 +20,7 @@ function escolherOpcao(opcao) {
             contatoControlador.adicionarContato(nomeAdicionar, emailAdicionar, telefoneAdicionar);
             break;
         case "2":
-            const contatos = contatoControlador.listarContatos();
+            const contatos = contatoControlador.listarContatos();       
             contatos.forEach((contato) => console.log(contato));          
             break;
         case "3":
