@@ -1,0 +1,117 @@
+openapi: 3.0.0
+info:
+  title: API pratica07
+  description: API da pratica07, disciplina construção de back-end.
+  version: 0.1.0
+servers:
+  - url: http://localhost:3000
+    description: Ambiente de desenvolvimento
+tags:
+  - name: produtos
+paths:
+  /produtos:
+    get:
+      tags:
+        - produtos
+      responses: 
+        200:
+          description: Uma lista de produtos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayDeProdutos'
+
+    post:
+      tags:
+        - produtos
+      requestBody:
+        description: Um JSON com dados do novo produto
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Produto'
+      responses:
+        201:
+          description: Produto criado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        422:
+          description: Nome e preco são obrigatórios
+  /produtos/{produtoId}:
+    get:
+      tags:
+        - produtos
+      parameters:
+        - in: path
+          name: produtoId
+          type: integer
+          required: true
+          description: Id do produto a ser buscado
+      responses:
+        200:
+          description: Um JSON com os dados do produto encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        404:
+          description: Produto não encontrado
+    put:
+      tags:
+        - produtos
+      parameters:
+        - in: path
+          name: produtoId
+          type: integer
+          required: true
+          description: 'Id do produto a ser atualizado'
+      requestBody:
+        description: Um JSON com dados do novo produto
+        required: true
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+      responses:
+        200:
+          description: Produto atualizado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        404:
+          description: Produto não encontrado
+        422:
+          description: Nome e preco são obrigatórios
+    delete:
+      tags:
+        - produtos
+      parameters:
+        - in: path
+          name: produtoId
+          type: integer
+          required: true
+          description: Id do produto e ser removido
+      responses:
+        204:
+          description: Produto removido com sucesso
+        404:
+          description: Produto não encontrado
+components:
+  schemas:
+    ArrayDeProdutos:
+      type: array
+      items:
+        $ref: '#/components/schemas/Produto'
+    Produto:
+      type: object
+      properties:
+        id: 
+          type: integer
+        nome: 
+          type: string
+        preco: 
+          type: number
