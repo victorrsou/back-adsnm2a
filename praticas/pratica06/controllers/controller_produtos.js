@@ -10,7 +10,10 @@ function exibir(req, res) {
 }
 
 function buscarPeloId(req, res, next) {
+  
   const { produtoId } = req.params;
+  // const produtoId = req.params.produtoId;
+
   const produtoEncontrado = produtos.find((item) => item.id == produtoId);
   if (produtoEncontrado) {
     req.produtoEncontrado = produtoEncontrado;
