@@ -6,7 +6,7 @@ async function validarDados(req, res, next) {
         await produto.validate();
         next();
     } catch (err) {
-        res.status(422).json({msg: "Dados do produto invalidos"})
+        res.status(422).json({msg: "Dados do produto invalidos"});
     }
 }
 
@@ -15,4 +15,9 @@ async function criar(req, res) {
     res.status(201).json(produto);
 }
 
-module.exports = { validarDados, criar };
+async function obterTodos(req, res) {
+    const produtos = await Produto.find({});
+    res.json(produtos);
+}
+
+module.exports = { validarDados, criar, obterTodos };
