@@ -35,11 +35,23 @@ async function buscarPeloId(req, res, next) {
         res.status(400).json({msg: "Id inválido"});
     }
 }
-
+ 
 async function obter(req, res) {
     const id = new mongoose.Types.ObjectId(req.params.id);
     const produto = await Produto.findOne({_id: id});
     res.json(produto);
 }
 
-module.exports = { validarDados, criar, obterTodos, obter, buscarPeloId};
+async function atualizar(req, res) {
+    const id = new mongoose.Types.ObjectId(req.params.id);
+    const produto = await Produto.findOneAndUpdate({_id: id}, req.body);
+    res.json(produto);
+}
+
+async function remover(req, res) {
+    const id = new mongoose.Types.ObjectId(req.params.id)
+    await Produto.findOneAndDelete({_id: id});
+    res.status(204).end();
+}
+
+module.exports = { validarDados, criar, obterTodos, obter, buscarPeloId, atualizar, remover};
