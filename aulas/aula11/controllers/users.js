@@ -32,7 +32,7 @@ async function entrar(req, res) {
     if (usuarioEncontrado) {
         const senhaCifrada = cifrarSenha(req.body.senha, usuarioEncontrado.salto);
         if (usuarioEncontrado.senha === senhaCifrada) {
-            res.json({token: jwt.sign({email: usuarioEncontrado.email}, '12345678', {expiresIn: '1m'}) }); // email e chave de segurança "12345678"
+            res.json({token: jwt.sign({email: usuarioEncontrado.email}, process.env.SEGREDO, {expiresIn: '1m'}) }); // email e chave de segurança "12345678"
         } else {
             res.status(401).json({msg: 'acesso negado'});
         }

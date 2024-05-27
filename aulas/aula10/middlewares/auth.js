@@ -4,7 +4,7 @@ function validarToken (req, res, next) {
     const token = req.headers['authorization'];
     if (token) {
         try {
-            const payload = jwt.verify(token, '12345678'); // senha de segurança, guardar '.env'
+            const payload = jwt.verify(token, process.env.SEGREDO); // senha de segurança, guardar '.env'
             console.log(payload);
             next();
         } catch(err) {
