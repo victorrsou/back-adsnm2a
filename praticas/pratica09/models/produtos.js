@@ -1,3 +1,8 @@
 const mongoose = require('mongoose');
 
-// PAREI NA LETRA I! do documento prática09 
+const produtoSchema = new mongoose.Schema({
+    nome: {type: String},
+    preco: {type: Number}
+});
+
+module.exports = mongoose.model("Produto", produtoSchema);
