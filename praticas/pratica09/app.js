@@ -20,3 +20,5 @@ app.use('/apidocs', routerApidocs);
 app.use('/produtos', routerProdutos);
 
 module.exports = app;
+
+// parei na letra H, item 4 

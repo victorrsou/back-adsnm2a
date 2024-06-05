@@ -20,6 +20,6 @@ function gerarToken(payload) {
     }
 };
 
-module.exports = {criar};
+module.exports = {criar, cifrarSenha, gerarToken};
 
 // parei na letra G, item 3 
